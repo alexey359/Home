@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Шахматы - градиент</title>
+
+  
+
+  <style>
+
+    /*<link href="./fonts/Chess-7.TTF=Chess" rel="stylesheet" type="text/css">*/
+
+    @font-face {
+	  font-family: 'Chess_7';
+  	src: url('./fonts/Chess-7.TTF') format('truetype');
+	  font-weight: 300;
+	  font-style: normal;
+    }
+
+    body {
+      margin: 20px;
+      font-family: Chess_7, serif, 14; font-size: 30px;
+    }
+
+    .row-light-cell {width: 640px; height: 80px;
+      float: left; 
+      font-family: Chess_7;
+      font-size: 240%;
+      letter-spacing: 8px;
+      background-image: linear-gradient(to right, 
+      brown 0%, rgb(94, 20, 20) 8%, rgb(165, 42, 42) 12.5%, yellow 12.5%, #f8f3c1 17%, yellow 25%,
+      brown 25%, rgb(94, 20, 20) calc(8% + 25%), rgb(165, 42, 42) calc(12.5% + 25%), yellow calc(12.5% + 25%), #f8f3c1 calc(16% + 25%), yellow 50%,
+      brown 50%, rgb(94, 20, 20) calc(8% + 50%), rgb(165, 42, 42) calc(12.5% + 50%), yellow calc(12.5% + 50%), #f8f3c1 calc(16% + 50%), yellow 75%,
+      brown 75%, rgb(94, 20, 20) calc(8% + 75%), rgb(165, 42, 42) calc(12.5% + 75%), yellow calc(12.5% + 75%), #f8f3c1 calc(16% + 75%), yellow 100%);
+    }
+    .row-dark-cell {width: 640px; height: 80px;
+      float: left;
+      font-family: Chess_7; 
+      font-size: 240%;
+      letter-spacing: 8px;
+      background-image: linear-gradient(to right, 
+      yellow 0%, #f8f3c1 4.5%, yellow 12.5%, brown 12.5%, rgb(94, 20, 20) 20.5%, rgb(165, 42, 42) 25%,
+      yellow 25%, #f8f3c1 calc(4.5% + 25%), yellow calc(12.5% + 25%), brown calc(12.5% + 25%), rgb(94, 20, 20) calc(20.5% + 25%), rgb(165, 42, 42) 50%,
+      yellow 50%, #f8f3c1 calc(4.5% + 50%), yellow calc(12.5% + 50%), brown calc(12.5% + 50%), rgb(94, 20, 20) calc(20.5% + 50%), rgb(165, 42, 42) 75%,
+      yellow 75%, #f8f3c1 calc(4.5% + 75%), yellow calc(12.5% + 75%), brown calc(12.5% + 75%), rgb(94, 20, 20) calc(20.5% + 75%), rgb(165, 42, 42) 100%);
+    }
+
+    .my-div {
+      height: 40px;
+      width: 40px;
+      outline: 1px solid black;
+      background-image: linear-gradient(45deg, red 0, orange 14.28%, yellow calc(14.28% * 2),
+          green calc(14.28% * 3), skyblue calc(14.28% * 4), blue calc(14.28% * 5), purple 100%);
+    }
+
+    .div-border {
+    outline: 4px solid #eba06f;;
+    width: 640px; 
+    height: 640px; 
+    border-radius: 10px; 
+    }
+
+  </style>
+
+
+
+</head>
+
+<body>
+  <!-- <div style="width: 640px; height: 640px; border-radius: 3px; border: 12px; border-color:rgb(54, 12, 12);"> -->
+  <div class="div-border">
+
+    <div class="row-light-cell"> <!-- 1 -->   rnbqkbnr </div>
+    <div class="row-dark-cell">  <!-- 2 -->   pppppppp  </div>
+    <div class="row-light-cell"> <!-- 3 -->     </div>
+    <div class="row-dark-cell">  <!-- 4 -->     </div>
+    <div class="row-light-cell"> <!-- 5 -->     </div>
+    <div class="row-dark-cell">  <!-- 6 -->     </div>
+    <div class="row-light-cell"> <!-- 7 -->   oooooooo </div>
+    <div class="row-dark-cell">  <!-- 8 -->   tmvwlvmt  </div>
+
+  </div>
+
+ 
+
+</body>
+
+</html>
