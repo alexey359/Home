@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>сверстать доску</title>
+  <style>
+    body {
+      margin 0;
+    }
+
+    body>div {
+      outline: 1px solid red;
+      width: 80vmin;
+      height: 80vmin;
+      margin: 10vmin; 
+      background-color: rgb(235, 208, 208);
+      position: absolute;
+      counter-reset: rows 0 cols 1;
+    }
+
+    div>div {
+      width: 80vmin;
+      height: 10vmin;
+      outline: 1px solid red;
+      position: absolute;
+    }
+
+    div>div>div {
+      width: 10vmin;
+      height: 10vmin;
+      outline: 1px solid red;
+      position: absolute;
+      vertical-align: top;
+    }
+        
+    div>div:nth-child(odd)>div:nth-child(even), div>div:nth-child(even)>div:nth-child(odd) {
+      background-color: red;
+    }
+
+    div>div:nth-child(1) {top: 0vmin;left:0;}
+    div>div:nth-child(2) {top: 10vmin;left:0;}
+    div>div:nth-child(3) {top: 20vmin;left:0;}
+    div>div:nth-child(4) {top: 30vmin;left:0;}
+    div>div:nth-child(5) {top: 40vmin;left:0;}
+    div>div:nth-child(6) {top: 50vmin;left:0;}
+    div>div:nth-child(7) {top: 60vmin;left:0;}
+    div>div:nth-child(8) {top: 70vmin;left:0;}
+
+    div>div>div:nth-child(1) {left:0;top:0;}
+    div>div>div:nth-child(2) {left:10vmin;top:0;}
+    div>div>div:nth-child(3) {left:20vmin;top:0;}
+    div>div>div:nth-child(4) {left:30vmin;top:0;}
+    div>div>div:nth-child(5) {left:40vmin;top:0;}
+    div>div>div:nth-child(6) {left:50vmin;top:0;}
+    div>div>div:nth-child(7) {left:60vmin;top:0;}
+    div>div>div:nth-child(8) {left:70vmin;top:0;}
+
+    body>div>div:nth-of-type(n) {
+      counter-increment: rows;
+    }
+
+    body>div>div>div:nth-of-type(8n+1)::before {
+      margin-left: -4vmin;
+      font-size: 4vmin;
+      line-height: 10vmin;
+      content: counter(rows);
+    }
+    body>div>div>div:nth-of-type(8n)::before {
+      margin-left: 12vmin;
+      font-size: 4vmin;
+      line-height: 10vmin;
+      content: counter(rows);
+    }
+    
+    body>div>div>div {
+      background-image: url(https://files.slack.com/files-pri/T010D3N0094-F011XJRKC9X/image.png);
+      background-size: 60vmin;
+      background-repeat: no-repeat;
+    }
+
+    body>div>div:nth-child(n + 3)>div {
+      background-image: none;
+    }
+
+    body>div>div:nth-child(n + 7)>div {
+      background-image: url(https://files.slack.com/files-pri/T010D3N0094-F011XJRKC9X/image.png);
+    }
+
+    /* чёрные */
+    body>div>div:nth-child(1)>div:nth-child(1),
+    body>div>div:nth-child(1)>div:nth-child(8) {
+      background-position-x: -20vmin;
+    }
+    body>div>div:nth-child(1)>div:nth-child(2),
+    body>div>div:nth-child(1)>div:nth-child(7) {
+      background-position-x: -41vmin;
+    }
+    body>div>div:nth-child(1)>div:nth-child(3),
+    body>div>div:nth-child(1)>div:nth-child(6) {
+      background-position-x: -31vmin;
+    }
+    body>div>div:nth-child(1)>div:nth-child(4) {
+      background-position-x: -10vmin;
+    }
+    body>div>div:nth-child(1)>div:nth-child(5) {
+      background-position-x: 1vmin;
+    }
+    body>div>div:nth-child(2)>div {
+      background-position-x: -52vmin;
+    }
+
+    /* белые */
+    body>div>div:nth-child(8)>div:nth-child(1),
+    body>div>div:nth-child(8)>div:nth-child(8) {
+      background-position-x: -20vmin;
+      background-position-y: -10vmin;
+    }
+    body>div>div:nth-child(8)>div:nth-child(2),
+    body>div>div:nth-child(8)>div:nth-child(7) {
+      background-position-x: -41vmin;
+      background-position-y: -10vmin;
+    }
+    body>div>div:nth-child(8)>div:nth-child(3),
+    body>div>div:nth-child(8)>div:nth-child(6) {
+      background-position-x: -31vmin;
+      background-position-y: -10vmin;
+    }
+    body>div>div:nth-child(8)>div:nth-child(4) {
+      background-position-x: 1vmin;
+      background-position-y: -10vmin;
+    }
+    body>div>div:nth-child(8)>div:nth-child(5) {
+      background-position-x: -10vmin;
+      background-position-y: -10vmin;
+    }
+    body>div>div:nth-child(7)>div {
+      background-position-x: -52vmin;
+      background-position-y: -10vmin;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <div>
+    <div>
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <div>
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <div>
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <div>
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <div>
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <div>
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <div>
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <div>
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+  </div>
+</body>
+</html>
