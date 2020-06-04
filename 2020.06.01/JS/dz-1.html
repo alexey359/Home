@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var valFIO;
+    var valAge;
+    var valSex;
+    var boolMan = false;
+    var strResult;
+    var AgePension;
+
+    valFIO = prompt("Введите Ф.И.О.:");
+    valAge = parseInt(prompt("Введите Ваш возраст:"));
+    valSex = prompt("Укажите Ваш пол (М/Ж):");
+
+    //console.log(rost); //вывод в консоль
+    if (valSex === "М" || valSex === "м" || valSex === "m" || valSex === "M") {
+      boolMan = true;
+    } else { boolMan = false; }
+
+    if (valAge < 12) {
+      strResult = "Вы - ребёнок. ";
+      strResult = strResult + (boolMan ? "Маленький мальчик" : "Маленькая девочка");
+      strResult = strResult + " " + valFIO;
+    } else {
+      if (valAge <= 29) {
+        strResult = "Вы - ";
+        strResult = strResult + (boolMan ? "молодой человек" : "девушка");
+        strResult = strResult + " " + valAge + " лет. ";
+        strResult = strResult + "Вас зовут " + valFIO + ". ";
+      }
+    }
+
+    if (valAge > 29 && valAge < 50) {
+      strResult = "";
+      strResult = (boolMan ? "Уважаемый " + valFio + ". Вы - мужчина хоть куда в самом расцвете лет." : "Уважаемая " + valFio + ". Вы - видная дама в самом расцвете лет.");
+    } else {
+      if (valAge >= 50) {
+        AgePension = Number(boolMan ? 63 : 58);
+        AgePension = AgePension - valAge; //сколько осталось до пенсии
+
+        if (boolMan && AgePension <= 0) {
+          strResult = "Уважаемый " + valFIO + ", Вы - пенсионер.";
+        } else {
+          if (boolMan && AgePension > 0) {
+            strResult = "Уважаемый " + valFIO + ", через " + AgePension + "г. вы станете пенсионером.";
+          }
+        }
+
+        if (!boolMan && AgePension <= 0) {
+          strResult = "Уважаемая " + valFIO + ", Вы - пенсионерка.";
+        } else {
+          if (!boolMan && AgePension > 0) {
+            strResult = "Уважаемая " + valFIO + ", через " + AgePension + "г. вы станете пенсионеркой.";
+          }
+        }
+      }
+    }
+    alert(strResult); //вывод значения переменной
+  </script>
+</body>
+
+</html>
