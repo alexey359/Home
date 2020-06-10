@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DZ JS функции</title>
+</head>
+
+<body>
+  <script>
+    const minTerritory = 600e3; //600 000
+    const maxPopulation = 80e6; //80млн
+
+    var countryData = []; //массив данных по странам
+    var countryDataResult = [];
+
+    function requestCountryData() {
+      var countryName = prompt("Введите название страны");
+      var countryTerritory = parseInt(prompt("Введите площадь страны (км2)"), 10);
+      var countryPopuation = prompt("Население страны (чел.)");
+
+      return { countryName, countryTerritory, countryPopuation }; //это сокращенная запись
+
+      /*
+      var result = {
+        name: name, age: age, work: work
+      }
+      return result;
+      */
+    }
+    
+    function TerritoryMoreThan(countryData, Index) {
+      if (countryData[Index].countryTerritory > minTerritory) {
+        var CountryName = countryData[Index].countryName;
+        return { CountryName }; 
+      }
+    }
+
+    function PopulationLessThan(countryData, Index) {
+      if (countryData[Index].countryPopuation < maxPopulation) {
+        var CountryName = countryData[Index].countryName;
+        return { CountryName }; 
+      }
+    }
+
+    do { //ввод стран
+      countryData[countryData.length] = requestCountryData();
+    } while (confirm("Продолжить ввод данных?"));
+
+    console.log(countryData);
+
+    for (i = 0; i < countryData.length; i++) { //поиск стран
+      countryDataResult[countryDataResult.length] = TerritoryMoreThan(countryData, i);
+    }
+
+    console.log("Страны с территорией больше чем " + minTerritory);
+    console.log(countryDataResult);
+
+    countryDataResult = []; //очистка массива
+
+    for (i = 0; i < countryData.length; i++) { //поиск стран
+      countryDataResult[countryDataResult.length] = PopulationLessThan(countryData, i);
+    }
+
+    console.log("Страны с населением меньше чем " + maxPopulation);
+    console.log(countryDataResult);
+
+  </script>
+</body>
+
+</html>
