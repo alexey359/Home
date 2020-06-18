@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("button:nth-child(5)").click(function (e) {
+        e.preventDefault(); //предотвращает обработчик событий по умолчанию
+        alert("нажата кнопка 1");
+        var myFio = $("[name=FIO]").val();      //забираем данные по селектору
+        var myDate = $("[name=Date]").val();      //забираем данные по селектору
+        var myCar = $("[name=Car]").val(); 
+        var myResult = $("[name=Result]").val(); 
+
+        // alert("получаем данные из формы: " + myFio + " " + myDate + " " + myCar + " " + myResult);
+        
+        $.post("http://109.235.69.203:8080/data/1010/", { myFio, myDate, myCar, myResult },
+          function(data,status) { console.log("Ответ: " + data + "\nСтатус: " + status); });
+      });
+
+      $("button:nth-child(6)").click(function (e2) {
+        e2.preventDefault(); //предотвращает обработчик событий по умолчанию
+        // alert("нажата кнопка 2");
+        var section = $("<section></section>").append(`ФИО: ${myFio}, дата: ${myDate}, машина: ${myCar}, результат: ${myResult}`);
+        $("body").append(section); // новый эл-т НЕ добавляется
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+  <form>
+    <div>
+      <label>Ф.И.О.:<input name="FIO" /></label>
+    </div>
+    <div>
+      <label>Дата:<input type="date" name="Date" /></label>
+    </div>
+    <div>
+      <label>Автомобиль:
+        <select name="Car">
+          <option selected>Лада</option>
+          <option>Volkswagen</option>
+          <option>Skoda</option>
+        </select>
+    </div>
+    <div>
+      <label>Результат:
+        <select name="Result">
+          <option value="success">Сдал</option>
+          <option value="failure" selected>Не сдал</option>
+        </select>
+      </label>
+    </div>
+    <button>1 - POST</button>
+    <button>2 - View</button>
+  </form>
+</body>
+</html>
